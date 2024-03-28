@@ -1,0 +1,15 @@
+<div class="container col-2 border bg-light">
+  <br />
+  <button (click)="filter()">Filter</button><br /><br />
+  <button (click)="resetFilter()">Reset filter</button>
+  <br /><br />
+  <ul
+    *ngFor="let currentProduct of productsFinal"
+    (click)="changeProduct(currentProduct)"
+  >
+    {{
+      currentProduct.product
+    }}
+    >
+  </ul>
+</div>

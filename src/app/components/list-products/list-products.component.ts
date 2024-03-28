@@ -1,17 +1,15 @@
 import { Component } from '@angular/core';
-import { products } from './products';
-import { Product } from './common/products';
+import { products } from 'src/app/products';
+import { Product } from 'src/app/common/products';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  selector: 'app-list-products',
+  templateUrl: './list-products.component.html',
+  styleUrls: ['./list-products.component.scss'],
 })
-export class AppComponent {
-  title = 'ejercicio2';
-  productTitle!: string;
-  img!: string;
+export class ListProductsComponent {
   productsFinal: Product[] = products;
+
   price!: number;
   simmilarProduct1!: string;
   simmilarProduct2!: string;
@@ -21,8 +19,20 @@ export class AppComponent {
   similarImg2!: string;
   reviewImg1!: string;
   reviewName1!: string;
+  productTitle!: string;
+  img!: string;
 
-  ngOnInit(): void {
+  public filter() {
+    for (let i = 0; i < this.productsFinal.length; i++) {
+      if (this.productsFinal[i].price == 4000) {
+        this.productTitle = this.productsFinal[i].product;
+        this.price = this.productsFinal[i].price;
+        this.img = 'assets/7591b0999a57bf8f958c33d4bfe1b0a0.png';
+      }
+    }
+  }
+
+  public resetFilter() {
     this.getFirstProduct();
   }
 
@@ -41,37 +51,6 @@ export class AppComponent {
     if (this.productsFinal[0].reviews?.length) {
       this.reviewImg1 = 'assets/images.png';
       this.reviewName1 = this.productsFinal[0].reviews[0].name;
-    }
-  }
-
-  public filter() {
-    for (let i = 0; i < this.productsFinal.length; i++) {
-      if (this.productsFinal[i].price == 4000) {
-        this.productTitle = this.productsFinal[i].product;
-        this.price = this.productsFinal[i].price;
-        this.img = 'assets/7591b0999a57bf8f958c33d4bfe1b0a0.png';
-      }
-    }
-  }
-
-  public resetFilter() {
-    this.getFirstProduct();
-  }
-
-  public deleteProduct() {
-    for (let i = 0; i < this.productsFinal.length; i++) {
-      if (this.productsFinal[i].product == this.productTitle) {
-        this.productTitle = '';
-        this.img = '';
-        this.price = 0;
-
-        this.productsFinal.splice(
-          this.productsFinal.indexOf(this.productsFinal[i]),
-          1
-        );
-
-        console.log(this.productsFinal);
-      }
     }
   }
 
