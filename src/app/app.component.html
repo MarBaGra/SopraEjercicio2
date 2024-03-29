@@ -2,7 +2,7 @@
   <app-nav-bar></app-nav-bar>
 
   <div class="row">
-    <div class="container col-2 border bg-light">
+    <div class="container col-2 border bg-lights">
       <br />
       <!--
       filtrar por precio
@@ -10,49 +10,51 @@
         <option *ngFor="let p of productsFinal" value="{{ p.price }}">
           {{ p.price }}
         </option></select-->
-      <button (click)="filter()">Filter</button><br /><br />
-      <button (click)="resetFilter()">Reset filter</button>
-      <br /><br />
-      <ul *ngFor="let p of productsFinal" (click)="changeProduct(p)">
-        {{
-          p.product
-        }}
-        >
+      <button class="rounded btnList" (click)="filter()">Filter</button
+      ><br /><br />
+      <button class="rounded resetFilter btnList" (click)="resetFilter()">
+        Reset filter
+      </button>
+      <ul
+        class="user-select-all shadow rounded"
+        *ngFor="let p of productsFinal"
+        (click)="changeProduct(p)"
+      >
+        <span class="cursor"> {{ p.product }}</span>
       </ul>
     </div>
 
     <div class="container col-8 border bg-light">
       <div class="row border">
-        <div class="col-4"><img class="img" src="{{ img }}" /></div>
+        <div class="col-4 p-5"><img class="img" src="{{ img }}" /></div>
         <div class="col-4">
           <div class="row">
-            <h4>{{ productTitle }}</h4>
+            <span class="fs-4 p-3">{{ productTitle }}</span>
           </div>
           <br />
           <div class="row">$ {{ price }}</div>
           <br />
           <div class="row">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatem
-            atque iure, placeat accusamus mollitia nesciunt nisi fugiat ipsam
-            maiores, tenetur sequi natus cum, dolore dolores illum. Sapiente
-            numquam debitis beatae?
+            {{ productDescription }}
           </div>
         </div>
         <div class="col-4">
           <br />
-          <button (click)="deleteProduct()">Delete product</button>
+          <button class="rounded" (click)="deleteProduct()">
+            Delete product
+          </button>
         </div>
       </div>
       <div class="row border">
-        <div class="row justify-content-center">Similar Products</div>
+        <div class="row justify-content-center fs-4 p-3">Similar Products</div>
         <br /><br />
         <div class="row">
-          <div class="col-6">
+          <div class="col-6 p-3">
             <div class="row">
-              <div class="col">
-                <img class="img" src="{{ similarImg1 }}" />
+              <div class="col mb-2">
+                <img class="img similarImg1" src="{{ similarImg1 }}" />
               </div>
-              <div class="col">
+              <div class="col mt-4">
                 <p>{{ simmilarProduct1 }}</p>
                 <br />
                 <p>${{ similarPrice1 }}</p>
@@ -61,10 +63,10 @@
           </div>
           <div class="col-6">
             <div class="row">
-              <div class="col">
+              <div class="col mt-3">
                 <img class="img" src="{{ similarImg2 }}" />
               </div>
-              <div class="col">
+              <div class="col mt-4">
                 <p>{{ simmilarProduct2 }}</p>
                 <br />
                 <p>${{ similarPrice2 }}</p>
@@ -74,7 +76,9 @@
         </div>
       </div>
       <div class="row border">
-        <div class="row"><h4>Reviews</h4></div>
+        <div class="row">
+          <span class="fs-4 p-3 reviews">Reviews</span>
+        </div>
         <br /><br />
         <div class="row">
           <div class="col"><img class="img" src="{{ reviewImg1 }}" /></div>
@@ -86,7 +90,7 @@
             voluptatibus sunt sed.
           </div>
         </div>
-        <div class="row">
+        <div class="row mt-3">
           <div class="col"><img class="img" src="" /></div>
           <div class="col">Harry</div>
           <div class="col">

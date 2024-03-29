@@ -2,24 +2,23 @@ import { Product } from './common/products';
 
 export const products: Product[] = [
   {
-    product: 'Tomate',
-    price: 1000,
+    product: 'Tomato',
+    price: 0.75,
     currency: '€',
     rating: 4.8,
-    description:
-      'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes.',
+    description: 'Tomato is a very healthy food and is mostly used in salads.',
     similarProducts: [
       {
-        product: 'Coca-Cola',
-        price: 4000,
+        product: 'lettuce',
+        price: 0.8,
         currency: '$',
         rating: 2.8,
         description:
           'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.',
       },
       {
-        product: 'Powerade',
-        price: 200,
+        product: 'Carrot',
+        price: 0.4,
         currency: '€',
         rating: 3.5,
         description:
@@ -55,15 +54,14 @@ export const products: Product[] = [
   },
   {
     product: 'Coca-Cola',
-    price: 4000,
+    price: 1.25,
     currency: '$',
     rating: 2.8,
-    description:
-      'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo.',
+    description: 'very refreshing drink',
     similarProducts: [
       {
         product: 'Powerade',
-        price: 200,
+        price: 1.15,
         currency: '€',
         rating: 3.5,
         description:
@@ -71,7 +69,7 @@ export const products: Product[] = [
       },
       {
         product: 'Juice',
-        price: 2500,
+        price: 1,
         currency: '€',
         rating: 5,
         description:
@@ -107,23 +105,22 @@ export const products: Product[] = [
   },
   {
     product: 'Powerade',
-    price: 2500,
+    price: 1.15,
     currency: '€',
     rating: 5,
-    description:
-      'Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel, luctus pulvinar, hendrerit id, lorem. Maecenas nec odio et ante tincidunt tempus. Donec vitae sapien ut libero venenatis faucibus.',
+    description: 'Energy drink',
     similarProducts: [
       {
-        product: 'Powerade',
-        price: 200,
+        product: 'Coca-cola',
+        price: 1.25,
         currency: '€',
         rating: 3.5,
         description:
           'Nullam quis ante. Etiam sit amet orci eget eros faucibus tincidunt. Duis leo. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. ',
       },
       {
-        product: 'Tomate',
-        price: 1000,
+        product: 'Juice',
+        price: 1,
         currency: '€',
         rating: 4.8,
         description:
@@ -151,7 +148,7 @@ export const products: Product[] = [
   },
   {
     product: 'Juice',
-    price: 200,
+    price: 1,
     currency: '€',
     rating: 3.5,
     description:
