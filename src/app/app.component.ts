@@ -53,6 +53,7 @@ export class AppComponent {
         this.productTitle = this.productsFinal[i].product;
         this.price = this.productsFinal[i].price;
         this.img = 'assets/7591b0999a57bf8f958c33d4bfe1b0a0.png';
+        this.productDescription = this.productsFinal[i].description;
       }
     }
   }
