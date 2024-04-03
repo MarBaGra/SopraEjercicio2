@@ -1,15 +1,26 @@
-<div class="container col-2 border bg-light">
+<div class="container border">
   <br />
-  <button (click)="filter()">Filter</button><br /><br />
-  <button (click)="resetFilter()">Reset filter</button>
-  <br /><br />
-  <ul
-    *ngFor="let currentProduct of productsFinal"
-    (click)="changeProduct(currentProduct)"
+  <!--
+  filtrar por precio
+  <select name="precios" id="" (change)="onSubmit($event)">
+    <option *ngFor="let p of productsFinal" value="{{ p.price }}">
+      {{ p.price }}
+    </option></select-->
+  <button
+    [ngClass]="isCheck ? 'bg-success' : ''"
+    class="rounded btnList btn-md"
+    (click)="filter()"
   >
-    {{
-      currentProduct.product
-    }}
-    >
+    Filter</button
+  ><br /><br />
+  <button class="rounded resetFilter btnList btn-md" (click)="resetFilter()">
+    Reset filter
+  </button>
+  <ul
+    class="user-select-all shadow rounded"
+    *ngFor="let p of productsFinal"
+    (click)="changeProduct(p)"
+  >
+    <span class="cursor"> {{ p.product }}</span>
   </ul>
 </div>

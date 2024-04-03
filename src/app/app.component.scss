@@ -11,6 +11,10 @@
   margin-left: 10px;
 }
 
+.reviewImg {
+  margin-left: 20px;
+}
+
 button {
   background-color: lightblue;
 }
@@ -25,4 +29,22 @@ button {
 
 .reviews {
   text-align: center;
+}
+
+.btnDelete {
+  width: 140px;
+}
+
+.favImg {
+  width: 30px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.backgroundFav {
+  background-color: grey;
+}
+
+button:hover {
+  background-color: lightgreen;
 }

@@ -4,6 +4,7 @@ export interface Product {
   currency: string;
   rating: number;
   description: string;
+  image?: string | null;
   similarProducts?: Product[] | null;
   reviews?: Review[] | null;
 }
