@@ -10,21 +10,20 @@
   background-color: lightgray;
 }
 .subscribe {
-  text-align: center;
   margin-top: 120px;
 }
-input {
-  width: 250px;
-  margin-left: 1050px;
-}
+
 button {
   width: 150px;
+  margin-bottom: 100px;
 }
 button:hover {
   background-color: lightgreen;
 }
 .divInput1 {
-  margin-bottom: 200px;
+  display: grid;
+  justify-content: center;
+  align-items: center;
 }
 .description {
   display: grid;
