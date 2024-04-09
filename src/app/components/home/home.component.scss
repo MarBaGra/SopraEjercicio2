@@ -48,3 +48,9 @@ button {
 button:hover {
   background-color: lightgreen;
 }
+
+.centrarImg {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
