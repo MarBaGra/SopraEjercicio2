@@ -12,6 +12,7 @@ export class HomeComponent {
   productTitle!: string;
   img!: string;
   productsFinal!: Product[];
+  selectedProducts: Product[] = [];
   price!: number;
   productDescription!: string;
   simmilarProduct1!: string;
@@ -98,6 +99,15 @@ export class HomeComponent {
           this.productsFinal.indexOf(this.productsFinal[i]),
           1
         );
+      }
+    }
+  }
+
+  public addToCart() {
+    for (let i = 0; i < this.productsFinal.length; i++) {
+      if (this.productsFinal[i].product == this.productTitle) {
+        this.selectedProducts.push(this.productsFinal[i]);
+        console.log(this.selectedProducts);
       }
     }
   }
