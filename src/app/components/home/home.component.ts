@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { products } from 'C:/Users/mbacete/EjerciciosAngular/ejercicio2/src/app/products';
 import { Product } from 'C:/Users/mbacete/EjerciciosAngular/ejercicio2/src/app/common/products';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +11,7 @@ import { Product } from 'C:/Users/mbacete/EjerciciosAngular/ejercicio2/src/app/c
 export class HomeComponent {
   productTitle!: string;
   img!: string;
-  productsFinal: Product[] = products;
+  productsFinal!: Product[];
   price!: number;
   productDescription!: string;
   simmilarProduct1!: string;
@@ -27,8 +28,26 @@ export class HomeComponent {
   stars!: string[];
   rating!: number;
 
+  constructor(private dataService: DataService) {}
+
   ngOnInit(): void {
-    this.fillData(this.productsFinal[0]);
+    this.getProducts();
+  }
+
+  private getProducts() {
+    this.dataService.getProducts().subscribe({
+      next: (data) => {
+        this.productsFinal = data;
+        this.fillData(this.productsFinal[0]);
+      },
+      error: (err) => {
+        console.log(err);
+      },
+
+      complete: () => {
+        console.log('Complete!!!');
+      },
+    });
   }
 
   public fillStars(rating: number): string[] {

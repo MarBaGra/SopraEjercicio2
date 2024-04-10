@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 export class DataService {
   constructor(private http: HttpClient) {}
 
-  getProducts(): Observable<Product> {
-    return this.http.get<Product>('/assets/data/products.json');
+  getProducts(): Observable<Product[]> {
+    return this.http.get<Product[]>('/assets/data/products.json');
   }
 }
