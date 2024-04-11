@@ -22,4 +22,13 @@ export class DataService {
   getSelectedProducts(): Product[] {
     return this.selectedProducts;
   }
+
+  deleteProduct(product: Product): Product[] {
+    this.selectedProducts.forEach((selectedProduct) => {
+      if (selectedProduct == product) {
+        this.selectedProducts.splice(this.selectedProducts.indexOf(product), 1);
+      }
+    });
+    return this.selectedProducts;
+  }
 }

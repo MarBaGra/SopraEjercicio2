@@ -19,4 +19,8 @@ export class CartComponent {
   public getSelectedProducts() {
     this.selectedProducts = this.dataService.getSelectedProducts();
   }
+
+  public deleteProduct(product: Product) {
+    this.selectedProducts = this.dataService.deleteProduct(product);
+  }
 }

@@ -1,7 +1,10 @@
-<div>
-  <ul *ngFor="let p of selectedProducts">
+<div class="mt-3">
+  <ul *ngFor="let currentProduct of selectedProducts">
     {{
-      p.product
+      currentProduct.product
     }}
+    <button class="rounded btnDelete" (click)="deleteProduct(currentProduct)">
+      Delete product
+    </button>
   </ul>
 </div>
