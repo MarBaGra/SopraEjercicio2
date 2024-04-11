@@ -30,6 +30,14 @@
               <i [ngClass]="isCheck ? 'bi bi-heart-fill' : 'bi bi-heart'"></i>
             </span>
           </div>
+          <div class="col mt-1 cart">
+            <img
+              routerLink="/cart"
+              routerLinkActive="active"
+              src="/assets/icons8-carrito-de-compras-24.png"
+            /><br />
+            {{ added }}
+          </div>
         </div>
         <br />
         <div class="row">$ {{ price }}</div>
