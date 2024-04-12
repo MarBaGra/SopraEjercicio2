@@ -29,6 +29,7 @@ export class HomeComponent {
   stars!: string[];
   rating!: number;
   added: string = '';
+  addCart!: boolean;
 
   constructor(private dataService: DataService) {}
 
@@ -107,10 +108,11 @@ export class HomeComponent {
   public addToCart() {
     for (let i = 0; i < this.productsFinal.length; i++) {
       if (this.productsFinal[i].product == this.productTitle) {
-        this.dataService.setProduct(this.productsFinal[i]);
+        this.dataService.setCartProduct(this.productsFinal[i]);
         this.added = 'Product added to cart!';
-        //this.selectedProducts.push(this.productsFinal[i]);
+        this.addCart = true;
 
+        //this.selectedProducts.push(this.productsFinal[i]);
         //console.log(this.selectedProducts);
       }
     }
@@ -127,6 +129,7 @@ export class HomeComponent {
 
   public fillData(currentProduct: Product) {
     this.added = '';
+    this.addCart = false;
     this.productTitle = currentProduct.product;
     this.stars = this.fillStars(currentProduct.rating);
     this.price = currentProduct.price;
@@ -156,9 +159,10 @@ export class HomeComponent {
       this.reviewName2 = currentProduct.reviews[1].name;
     }
 
-    this.dataService.getSelectedProducts().forEach((selectedProduct) => {
+    this.dataService.getCartSelectedProducts().forEach((selectedProduct) => {
       if (selectedProduct.product == currentProduct.product) {
         this.added = 'Added!';
+        this.addCart = true;
       }
     });
   }

@@ -17,10 +17,10 @@ export class CartComponent {
   }
 
   public getSelectedProducts() {
-    this.selectedProducts = this.dataService.getSelectedProducts();
+    this.selectedProducts = this.dataService.getCartSelectedProducts();
   }
 
   public deleteProduct(product: Product) {
-    this.selectedProducts = this.dataService.deleteProduct(product);
+    this.selectedProducts = this.dataService.deleteCartProduct(product);
   }
 }

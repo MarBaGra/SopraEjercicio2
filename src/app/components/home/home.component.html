@@ -6,11 +6,8 @@
     (onResetFilter)="resetFilter()"
   ></app-list-products>
 
-  <div
-    [ngClass]="isCheck ? 'bg-secondary' : ''"
-    class="container col-md-10 border bg-light"
-  >
-    <div class="row border">
+  <div class="container col-md-10 border bg-light">
+    <div class="row border" [ngClass]="addCart ? 'bg-success' : ''">
       <div class="col-4 p-5">
         <img class="img centrarImg" src="{{ img }}" />
       </div>
@@ -36,7 +33,7 @@
               routerLinkActive="active"
               src="/assets/icons8-carrito-de-compras-24.png"
             /><br />
-            {{ added }}
+            <!--{{ added }}-->
           </div>
         </div>
         <br />
@@ -56,7 +53,7 @@
         </div>
       </div>
     </div>
-    <div class="row border">
+    <div class="row border" [ngClass]="addCart ? 'bg-success' : ''">
       <div class="row justify-content-center fs-4 p-3">Similar Products</div>
       <br /><br />
       <div class="row">
@@ -86,7 +83,7 @@
         </div>
       </div>
     </div>
-    <div class="row border">
+    <div class="row border" [ngClass]="addCart ? 'bg-success' : ''">
       <div class="row">
         <span class="fs-4 p-3 reviews">Reviews</span>
       </div>
