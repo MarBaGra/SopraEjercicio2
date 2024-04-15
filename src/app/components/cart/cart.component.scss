@@ -5,3 +5,17 @@
 button:hover {
   background-color: lightgreen;
 }
+
+p {
+  display: grid;
+  justify-content: center;
+  color: white;
+}
+
+ul {
+  background-color: lightblue;
+}
+
+.ulWidth {
+  width: 50px;
+}

@@ -1,5 +1,6 @@
 <div class="row">
   <app-list-products
+    [updateProducts]="productsFinal"
     class="col-md-2"
     (onChangeProduct)="changeProduct($event)"
     (onFilter)="filter()"

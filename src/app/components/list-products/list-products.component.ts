@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { products } from 'src/app/products';
 import { Product } from 'src/app/common/products';
 
@@ -7,13 +7,13 @@ import { Product } from 'src/app/common/products';
   templateUrl: './list-products.component.html',
   styleUrls: ['./list-products.component.scss'],
 })
-export class ListProductsComponent {
+export class ListProductsComponent implements OnInit {
   @Output() onChangeProduct = new EventEmitter<Product>();
   @Output() onFilter = new EventEmitter();
   @Output() onResetFilter = new EventEmitter();
+  @Input() updateProducts!: Product[];
 
-  productsFinal: Product[] = products;
-
+  productsFinal!: Product[];
   productTitle!: string;
   img!: string;
   price!: number;
@@ -27,6 +27,18 @@ export class ListProductsComponent {
   reviewImg1!: string;
   reviewName1!: string;
   isCheck!: boolean;
+
+  ngOnInit(): void {
+    this.getProducts();
+  }
+
+  private getProducts() {
+    if (this.updateProducts) {
+      this.productsFinal = this.updateProducts;
+    } else {
+      this.productsFinal = products;
+    }
+  }
 
   public filter() {
     this.isCheck = !this.isCheck;

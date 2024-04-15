@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { DataService } from 'src/app/services/data.service';
 import { Product } from 'src/app/common/products';
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-cart',
@@ -10,17 +10,17 @@ import { Product } from 'src/app/common/products';
 export class CartComponent {
   selectedProducts!: Product[];
 
-  constructor(private dataService: DataService) {}
+  constructor(private cartService: CartService) {}
 
   ngOnInit(): void {
     this.getSelectedProducts();
   }
 
   public getSelectedProducts() {
-    this.selectedProducts = this.dataService.getCartSelectedProducts();
+    this.selectedProducts = this.cartService.getCartSelectedProducts();
   }
 
   public deleteProduct(product: Product) {
-    this.selectedProducts = this.dataService.deleteCartProduct(product);
+    this.selectedProducts = this.cartService.deleteCartProduct(product);
   }
 }

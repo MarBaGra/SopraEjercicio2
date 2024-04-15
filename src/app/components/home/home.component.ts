@@ -1,7 +1,9 @@
-import { Component } from '@angular/core';
-import { products } from 'C:/Users/mbacete/EjerciciosAngular/ejercicio2/src/app/products';
+import { Component, EventEmitter, Output } from '@angular/core';
+import { ListProductsComponent } from '../list-products/list-products.component';
+//import { products } from 'C:/Users/mbacete/EjerciciosAngular/ejercicio2/src/app/products';
 import { Product } from 'C:/Users/mbacete/EjerciciosAngular/ejercicio2/src/app/common/products';
 import { DataService } from 'src/app/services/data.service';
+import { CartService } from 'src/app/services/cart.service';
 
 @Component({
   selector: 'app-home',
@@ -31,9 +33,27 @@ export class HomeComponent {
   added: string = '';
   addCart!: boolean;
 
-  constructor(private dataService: DataService) {}
+  constructor(
+    private dataService: DataService,
+    private cartService: CartService
+  ) {}
 
   ngOnInit(): void {
+    /*
+    this.dataService.products$.subscribe({
+      next: (data) => {
+        this.productsFinal = data;
+        this.fillData(this.productsFinal[0]);
+      },
+      error: (err) => {
+        console.log(err);
+      },
+
+      complete: () => {
+        console.log('Complete!!!');
+      },
+    });
+    */
     this.getProducts();
   }
 
@@ -108,12 +128,9 @@ export class HomeComponent {
   public addToCart() {
     for (let i = 0; i < this.productsFinal.length; i++) {
       if (this.productsFinal[i].product == this.productTitle) {
-        this.dataService.setCartProduct(this.productsFinal[i]);
-        this.added = 'Product added to cart!';
+        this.cartService.setCartProduct(this.productsFinal[i]);
+        //this.added = 'Product added to cart!';
         this.addCart = true;
-
-        //this.selectedProducts.push(this.productsFinal[i]);
-        //console.log(this.selectedProducts);
       }
     }
   }
@@ -159,8 +176,8 @@ export class HomeComponent {
       this.reviewName2 = currentProduct.reviews[1].name;
     }
 
-    this.dataService.getCartSelectedProducts().forEach((selectedProduct) => {
-      if (selectedProduct.product == currentProduct.product) {
+    this.cartService.getCartSelectedProducts().forEach((selectedProduct) => {
+      if (selectedProduct.product === currentProduct.product) {
         this.added = 'Added!';
         this.addCart = true;
       }

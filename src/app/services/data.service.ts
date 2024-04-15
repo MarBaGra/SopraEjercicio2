@@ -27,21 +27,4 @@ export class DataService {
   getProducts(): Observable<Product[]> {
     return this.http.get<Product[]>('/assets/data/products.json');
   }
-
-  setCartProduct(product: Product) {
-    this.selectedProducts.push(product);
-  }
-
-  getCartSelectedProducts(): Product[] {
-    return this.selectedProducts;
-  }
-
-  deleteCartProduct(product: Product): Product[] {
-    this.selectedProducts.forEach((selectedProduct) => {
-      if (selectedProduct == product) {
-        this.selectedProducts.splice(this.selectedProducts.indexOf(product), 1);
-      }
-    });
-    return this.selectedProducts;
-  }
 }
