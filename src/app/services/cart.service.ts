@@ -12,10 +12,12 @@ export class CartService {
 
   setCartProduct(product: Product) {
     this.selectedProducts.push(product);
+    sessionStorage.setItem('products', JSON.stringify(this.selectedProducts));
   }
 
   getCartSelectedProducts(): Product[] {
-    return this.selectedProducts;
+    return JSON.parse(sessionStorage.getItem('products') || '[]');
+    //return this.selectedProducts;
   }
 
   deleteCartProduct(product: Product): Product[] {

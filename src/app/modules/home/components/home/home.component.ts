@@ -39,24 +39,22 @@ export class HomeComponent {
   ) {}
 
   ngOnInit(): void {
-    /*
     this.dataService.products$.subscribe({
       next: (data) => {
+        console.log(data);
+        if (!data.length) return; //guard o guarda
         this.productsFinal = data;
         this.fillData(this.productsFinal[0]);
       },
       error: (err) => {
         console.log(err);
       },
-
-      complete: () => {
-        console.log('Complete!!!');
-      },
     });
-    */
-    this.getProducts();
+
+    //this.getProducts();
   }
 
+  /*
   private getProducts() {
     this.dataService.getProducts().subscribe({
       next: (data) => {
@@ -72,6 +70,7 @@ export class HomeComponent {
       },
     });
   }
+  */
 
   public fillStars(rating: number): string[] {
     const fullStars = Math.trunc(rating);

@@ -12,6 +12,10 @@ export class AppComponent implements OnInit {
   constructor(private dataService: DataService) {}
 
   ngOnInit(): void {
-    this.dataService.getProducts2;
+    this.dataService.getProducts2();
+  }
+
+  fillProduct() {
+    this.dataService.getProducts2();
   }
 }

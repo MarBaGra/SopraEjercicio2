@@ -3,13 +3,12 @@
 </div>
 <div class="row">
   <div class="col-md-2">
-    <ul *ngFor="let currentProduct of selectedProducts" class="rounded">
-      {{
-        currentProduct.product
-      }}
+    <span *ngFor="let currentProduct of selectedProducts" class="rounded">
+      <img src="{{ currentProduct.image }}" />
+      {{ currentProduct.product }}
       <button class="rounded btnDelete" (click)="deleteProduct(currentProduct)">
         Delete product
       </button>
-    </ul>
+    </span>
   </div>
 </div>
