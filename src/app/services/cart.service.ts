@@ -11,8 +11,10 @@ export class CartService {
   constructor(private http: HttpClient) {}
 
   setCartProduct(product: Product) {
-    this.selectedProducts.push(product);
-    sessionStorage.setItem('products', JSON.stringify(this.selectedProducts));
+    //this.selectedProducts.push(product);
+    let updateProducts = this.getCartSelectedProducts();
+    updateProducts.push(product);
+    sessionStorage.setItem('products', JSON.stringify(updateProducts));
   }
 
   getCartSelectedProducts(): Product[] {
@@ -20,9 +22,9 @@ export class CartService {
   }
 
   deleteCartProduct(product: Product): Product[] {
-    const updateProducts = this.getCartSelectedProducts();
+    let updateProducts = this.getCartSelectedProducts();
 
-    updateProducts.splice(updateProducts.indexOf(product));
+    updateProducts.splice(updateProducts.indexOf(product), 1);
 
     sessionStorage.setItem('products', JSON.stringify(updateProducts));
 
