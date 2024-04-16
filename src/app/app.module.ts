@@ -11,11 +11,11 @@ import { Interceptor1Interceptor } from './interceptors/interceptor1.interceptor
   declarations: [AppComponent, NavBarComponent],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [
-    /* {
+    {
       provide: HTTP_INTERCEPTORS,
       useClass: Interceptor1Interceptor,
+      multi: true,
     },
-    */
   ],
   bootstrap: [AppComponent],
 })

@@ -15,7 +15,9 @@ export class AppComponent implements OnInit {
     this.dataService.getProducts2();
   }
 
+  /*
   fillProduct() {
     this.dataService.getProducts2();
   }
+  */
 }

@@ -17,15 +17,15 @@ export class CartService {
 
   getCartSelectedProducts(): Product[] {
     return JSON.parse(sessionStorage.getItem('products') || '[]');
-    //return this.selectedProducts;
   }
 
   deleteCartProduct(product: Product): Product[] {
-    this.selectedProducts.forEach((selectedProduct) => {
-      if (selectedProduct === product) {
-        this.selectedProducts.splice(this.selectedProducts.indexOf(product), 1);
-      }
-    });
-    return this.selectedProducts;
+    const updateProducts = this.getCartSelectedProducts();
+
+    updateProducts.splice(updateProducts.indexOf(product));
+
+    sessionStorage.setItem('products', JSON.stringify(updateProducts));
+
+    return updateProducts;
   }
 }

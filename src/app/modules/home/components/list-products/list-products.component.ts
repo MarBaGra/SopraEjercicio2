@@ -33,7 +33,7 @@ export class ListProductsComponent implements OnInit {
   }
 
   private getProducts() {
-    if (this.updateProducts) {
+    if (this.updateProducts.length) {
       this.productsFinal = this.updateProducts;
     } else {
       this.productsFinal = products;
