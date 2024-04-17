@@ -13,7 +13,7 @@ export class Interceptor1Interceptor implements HttpInterceptor {
 
   intercept(
     request: HttpRequest<unknown>, //envio de peticion
-    next: HttpHandler //permiso para continuar
+    next: HttpHandler //permiso para continuar enviando cabecera
   ): Observable<HttpEvent<unknown>> {
     const headers = request.clone({
       //cabecera custom
