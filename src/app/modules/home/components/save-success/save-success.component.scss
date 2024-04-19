@@ -1,0 +1,13 @@
+.row {
+  justify-content: center;
+}
+
+.col-md-4 {
+  display: grid;
+  justify-content: center;
+  background-color: lightgray;
+}
+
+button:hover {
+  background-color: lightgreen;
+}

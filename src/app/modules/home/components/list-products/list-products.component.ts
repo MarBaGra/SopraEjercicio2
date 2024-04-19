@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { products } from 'src/app/products';
 import { Product } from 'src/app/common/products';
+import { DataService } from 'src/app/services/data.service';
 
 @Component({
   selector: 'app-list-products',
@@ -28,16 +29,24 @@ export class ListProductsComponent implements OnInit {
   reviewName1!: string;
   isCheck!: boolean;
 
+  constructor(private dataService: DataService) {}
+
   ngOnInit(): void {
     this.getProducts();
   }
 
   private getProducts() {
+    console.log(this.updateProducts);
+
+    this.productsFinal = this.updateProducts;
+
+    /*
     if (this.updateProducts.length) {
       this.productsFinal = this.updateProducts;
     } else {
       this.productsFinal = products;
     }
+    */
   }
 
   public filter() {

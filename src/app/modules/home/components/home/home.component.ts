@@ -39,9 +39,13 @@ export class HomeComponent {
   ) {}
 
   ngOnInit(): void {
+    this.getProducts();
+  }
+
+  private getProducts() {
     this.dataService.products$.subscribe({
       next: (data) => {
-        console.log(data);
+        //console.log(data);
         if (!data.length) return; //guard o guarda
         this.productsFinal = data;
         this.fillData(this.productsFinal[0]);
@@ -50,27 +54,7 @@ export class HomeComponent {
         console.log(err);
       },
     });
-
-    //this.getProducts();
   }
-
-  /*
-  private getProducts() {
-    this.dataService.getProducts().subscribe({
-      next: (data) => {
-        this.productsFinal = data;
-        this.fillData(this.productsFinal[0]);
-      },
-      error: (err) => {
-        console.log(err);
-      },
-
-      complete: () => {
-        console.log('Complete!!!');
-      },
-    });
-  }
-  */
 
   public fillStars(rating: number): string[] {
     const fullStars = Math.trunc(rating);
@@ -166,6 +150,13 @@ export class HomeComponent {
         this.similarImg1 = currentProduct.similarProducts[0].image;
         this.similarImg2 = currentProduct.similarProducts[1].image;
       }
+    } else {
+      this.simmilarProduct1 = '';
+      this.simmilarProduct2 = '';
+      this.similarPrice1 = 0;
+      this.similarPrice2 = 0;
+      this.similarImg1 = '';
+      this.similarImg2 = '';
     }
 
     if (currentProduct.reviews?.length) {

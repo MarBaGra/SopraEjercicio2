@@ -7,7 +7,7 @@ import { BehaviorSubject, Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class DataService {
-  selectedProducts: Product[] = [];
+  private _product: Product[] = [];
 
   private readonly products: BehaviorSubject<Product[]> = new BehaviorSubject<
     Product[]
@@ -19,12 +19,24 @@ export class DataService {
 
   getProducts2(): void {
     this.http.get<Product[]>('/assets/data/products.json').subscribe({
-      next: (jsonValue) => this.products.next(jsonValue),
+      next: (jsonValue) => {
+        this._product = jsonValue;
+        this.products.next(this._product);
+      },
       error: (error) => console.log(error),
     });
   }
 
   getProducts(): Observable<Product[]> {
     return this.http.get<Product[]>('/assets/data/products.json');
+  }
+
+  setCreatedProduct(product: Product) {
+    this._product.push(product);
+    this.products.next(this._product);
+  }
+
+  getCreatedProducts(): Product[] {
+    return this._product;
   }
 }
