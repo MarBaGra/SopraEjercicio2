@@ -1,11 +1,11 @@
-export interface Product {
+export interface IProductContract {
   product: string;
   price: number;
   currency: string;
   rating: number;
   description: string;
   image?: string | null;
-  similarProducts?: Product[] | null;
+  similarProducts?: IProductContract[] | null;
   reviews?: Review[] | null;
 }
 
