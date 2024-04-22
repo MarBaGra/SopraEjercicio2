@@ -25,6 +25,9 @@ export class FormComponent implements OnInit {
     description: [null, [Validators.required, Validators.maxLength(350)]],
   });
 
+  productsFinal!: Product[];
+  similarProduct!: string;
+
   constructor(
     private formBuilder: FormBuilder,
     private dataService: DataService,
@@ -35,7 +38,28 @@ export class FormComponent implements OnInit {
     this.getSimilarProducts();
   }
 
-  private getSimilarProducts() {}
+  private getSimilarProducts() {
+    this.dataService.products$.subscribe({
+      next: (data) => {
+        if (!data.length) return; //guard o guarda
+        this.productsFinal = data;
+        //this.fillData(this.productsFinal[0]);
+      },
+      error: (err) => {
+        console.log(err);
+      },
+    });
+  }
+
+  private characteresValidator(control: FormControl): boolean {
+    const nameRegexp: RegExp = /[!@#$%^&*()_+\-={};':"|,.<>//?]/;
+    return control.value && nameRegexp.test(control.value);
+  }
+
+  addSimilar(similarProduct: string) {
+    console.log('hello');
+    this.similarProduct = similarProduct;
+  }
 
   sendUserInfo() {
     console.log(
@@ -68,10 +92,5 @@ export class FormComponent implements OnInit {
       this.userForm.controls[field].invalid &&
       this.userForm.controls[field].touched
     );
-  }
-
-  characteresValidator(control: FormControl): boolean {
-    const nameRegexp: RegExp = /[!@#$%^&*()_+\-={};':"|,.<>//?]/;
-    return control.value && nameRegexp.test(control.value);
   }
 }
